@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Header() {
+function Header({ darkMode, toggleTheme }) {
   return (
     <header className="background-color">
       <nav>
@@ -15,7 +15,7 @@ function Header() {
           <li>
             <Link to="/about">À propos</Link>
           </li>
-          {/* Ajoutez d'autres liens de navigation selon vos besoins */}
+          <button onClick={toggleTheme}>{darkMode ? 'Mode Clair' : 'Mode Sombre'}</button>
         </ul>
       </nav>
     </header>

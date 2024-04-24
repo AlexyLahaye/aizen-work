@@ -1,9 +1,16 @@
-.App {
-  text-align: center;
+:root {
+  --background-color: ${theme.light.background};
+  --text-color: ${theme.light.text};
 }
 
-.background-color {
-  background-color: #f0b445;
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+
+.App {
+  text-align: center;
 }
 
 .App-logo {
