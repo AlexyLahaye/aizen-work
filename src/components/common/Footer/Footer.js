@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Footer() {
-  const currentDate = new Date().toLocaleDateString(); // Obtenir la date actuelle au format (jj/mm/aaaa)
+  const currentDate = new Date().toLocaleDateString(); // Obtiens la date du jour.
 
   return (
     <footer style={{ textAlign: 'center' }} className="background-color">
