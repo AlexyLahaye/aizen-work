@@ -13,9 +13,14 @@ function App() {
     setDarkMode(prevMode => !prevMode);
   };
 
+  const themeColor = 
+  { background: darkMode ? theme.dark.background : theme.light.background, 
+    color: darkMode ? theme.dark.text : theme.light.text }
+  
+
   return (
     <Router>
-      <div className="App" style={{ background: darkMode ? theme.dark.background : theme.light.background }}>
+      <div className="App" style={themeColor}>
         <Header darkMode={darkMode} toggleTheme={toggleTheme} />
         <Routes>
           <Route path="/" element={<HomePage darkMode={darkMode} />} />
