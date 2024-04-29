@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import GlobalStyles from './assets/styles/GlobalStyles';
 import './assets/styles/style.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/common/Header/Header';
 import Footer from './components/common/Footer/Footer';
-import HomePage from './views/Home/HomePage';
+import HotelTravelLandingPage from './views/Template/HotelTravelLandingPage';
 import theme from './assets/themes/theme';
 
 function App() {
@@ -19,15 +20,18 @@ function App() {
   
 
   return (
-    <Router>
-      <div className="App" style={themeColor}>
-        <Header darkMode={darkMode} toggleTheme={toggleTheme} />
-        <Routes>
-          <Route path="/" element={<HomePage darkMode={darkMode} />} />
-        </Routes>
-        <Footer darkMode={darkMode} />
-      </div>
-    </Router>
+    <>
+      <GlobalStyles />
+      <Router>
+        <div className="App" style={themeColor}>
+          <Header darkMode={darkMode} toggleTheme={toggleTheme} />
+          <Routes>
+            <Route path="/" element={<HotelTravelLandingPage/>} />
+          </Routes>
+          <Footer darkMode={darkMode} />
+        </div>
+      </Router>
+    </>
   );
 }
 
