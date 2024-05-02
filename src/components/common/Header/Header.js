@@ -14,6 +14,7 @@ function Header({ darkMode, toggleTheme }) {
     <Navbar.Collapse id="navbarScroll">
         <Nav className="me-auto" navbarScroll>
         <Nav.Link style={navBarCT} as={Link} to="/">Accueil</Nav.Link>
+        <Nav.Link style={navBarCT} as={Link} to="/Blog">Blog</Nav.Link>
         <Nav.Link style={navBarCT} as={Link} to="/Galerie">Galerie</Nav.Link>
         <NavDropdown style={navBarCT} title="Liscences" id="navbarScrollingDropdown">
             <NavDropdown.Item href="#idLiscence">One Piece</NavDropdown.Item>
