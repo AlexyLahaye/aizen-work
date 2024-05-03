@@ -1,22 +1,24 @@
-import React from 'react';
+import React from "react";
+import AnimationRevealPage from "helpers/AnimationRevealPage.js";
+import Hero from "components/hero/FullWidthWithImage.js";
+import Features from "components/features/ThreeColSimple.js";
+import MainFeature from "components/features/TwoColSingleFeatureWithStats.js";
+import SliderCard from "components/cards/ThreeColSlider.js";
+import TrendingCard from "components/cards/TwoTrendingPreviewCardsWithImage.js"; // eslint-disable-next-line
+import Testimonial from "components/testimonials/TwoColumnWithImageAndProfilePictureReview.js";
+import FAQ from "components/faqs/SimpleWithSideImage.js";
+import SubscribeNewsLetterForm from "components/forms/SimpleSubscribeNewsletter.js";
+import Footer from "components/footers/MiniCenteredFooter.js";
 
-function HomePage() {
-  return (
-    <div className="container mt-5">
-      <div className="row">
-        <div className="col-md-6">
-          {/* <img src="chemin/vers/votre/image.jpg" className="img-fluid" alt="Image d'accueil" /> */}
-        </div>
-        <div className="col-md-6">
-          <div className="text-center">
-            <p>
-              C'est un site qui cherche à vendre des statues/figurines faites à la main.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export default HomePage;
+export default () => (
+  <AnimationRevealPage>
+    <Hero />
+    <Features />
+    <SliderCard />
+    <TrendingCard />
+    <MainFeature />
+    <FAQ />
+    <SubscribeNewsLetterForm />
+    <Footer />
+  </AnimationRevealPage>
+);

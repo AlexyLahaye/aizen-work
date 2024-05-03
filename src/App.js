@@ -3,10 +3,10 @@ import GlobalStyles from './assets/styles/GlobalStyles';
 import './assets/styles/style.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/common/Header/Header';
-import HotelTravelLandingPage from './views/Template/HotelTravelLandingPage';
 import Login from './views/Login/Login';
 import Blog from './views/Blog/Blog';
 import theme from './assets/themes/theme';
+import HomePage from './views/Home/HomePage';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -39,7 +39,7 @@ function App() {
         <div className="App" style={themeColor}>
           <Header darkMode={darkMode} toggleTheme={toggleTheme} />
           <Routes>
-            <Route path="/" element={<HotelTravelLandingPage/>} />
+            <Route path="/" element={<HomePage/>} />
             <Route path="/Login" element={<Login tokenManager={tokenManager} token={token}/>} />
             <Route path="/Blog" element={<Blog tokenManager={tokenManager} token={token}/>} />
           </Routes>
