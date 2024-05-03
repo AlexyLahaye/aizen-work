@@ -8,7 +8,8 @@ import { css } from "styled-components/macro";
 import Footer from "components/footers/FiveColumnWithInputForm.js";
 import { SectionHeading } from "components/misc/Headings";
 import { PrimaryButton } from "components/misc/Buttons";
-import ModalForm from "components/forms/TwoColContactUsWithIllustrationFullForm";
+import ModalAddForm from "components/forms/AddPostForm";
+import ModalUpdateForm from "components/forms/UpdatePostForm";
 import { ReactComponent as PlusIcon } from "feather-icons/dist/icons/plus.svg";
 import { ReactComponent as MinusIcon } from "feather-icons/dist/icons/minus.svg";
 import { LoadPost, getAllComByIdPost, DeletePost } from "models/DummyApi";
@@ -99,12 +100,17 @@ export default ({ headingText = "Blog Posts", token }) => {
   };
 
   const openModalUpdatePost = () => {
-    setshowUpdateModal(true);
+    setshowUpdateModal(true)
+  };
+
+  const handleDeletePost = (idPost) => {
+    DeletePost(idPost)
+      .then(console.log("C'est bon c'est supprimer"))
   };
 
   const toggleCom = idPost => {
     if (activeIdPost === idPost) {
-      setActiveIdPost(null);
+      setActiveIdPost("");
     } else {
       setActiveIdPost(idPost);
       getAllComByIdPost(idPost).then(data => {
@@ -123,10 +129,10 @@ export default ({ headingText = "Blog Posts", token }) => {
           <ButtonContainer>
             <AddPostButton onClick={openModalAddPost}>Ajouter un post</AddPostButton>
             <UpdatePostButton onClick={openModalUpdatePost}>Modifier le post sélectionné</UpdatePostButton>
-            <DeletePostButton onClick={DeletePost()}>Supprimer le post selectionné</DeletePostButton>
+            <DeletePostButton onClick={() => handleDeletePost(activeIdPost)}>Supprimer le post selectionné</DeletePostButton>
           </ButtonContainer>
-          {showAddModal && <ModalForm isOpen={showAddModal} onClose={() => setshowAddModal(false)} />}
-          {showUpdateModal && <ModalForm isOpen={showUpdateModal} onClose={() => setshowUpdateModal(false)} />}
+          {showAddModal && <ModalAddForm isOpen={showAddModal} onClose={() => setshowAddModal(false)} />}
+          {showUpdateModal && <ModalUpdateForm isOpen={showUpdateModal} activeIdPost={activeIdPost} onClose={() => setshowUpdateModal(false)} />}
           <Posts>
             {allPost.length > 0 &&
               allPost.slice(0, visible).map((post, index) => (
