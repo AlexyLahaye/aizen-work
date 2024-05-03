@@ -23,6 +23,12 @@ export async function LoadPost() {
     .then(data => {return data.posts});
 }
 
+export async function GetOnePost(id){
+  return fetch('https://dummyjson.com/posts/'+ id)
+  .then(res => res.json())
+  .then(data => {console.log(data);return data});
+}
+
 export async function AddPost(title, body){
   return fetch('https://dummyjson.com/posts/add', {
   method: 'POST',
@@ -30,7 +36,7 @@ export async function AddPost(title, body){
   body: JSON.stringify({
     title: {title},
     body: {body},
-    userId: 5,
+    userId: 1,
   })
 })
 .then(res => res.json())
