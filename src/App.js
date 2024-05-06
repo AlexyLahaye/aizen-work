@@ -10,9 +10,14 @@ import HomePage from './views/Home/HomePage';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
+  const [tradMode, setTradMode] = useState("fr");
   
   const toggleTheme = () => {
     setDarkMode(prevMode => !prevMode);
+  };
+
+  const toggleTradMode = () => {
+    setTradMode(tradMode === "fr" ? "en" : "fr")
   };
   
   const [token, setToken] = useState("");
@@ -37,9 +42,9 @@ function App() {
       <GlobalStyles />
       <Router>
         <div className="App" style={themeColor}>
-          <Header darkMode={darkMode} toggleTheme={toggleTheme} />
+          <Header darkMode={darkMode} toggleTheme={toggleTheme} tradMode={tradMode} toggleTrad={toggleTradMode}/>
           <Routes>
-            <Route path="/" element={<HomePage/>} />
+            <Route path="/" tradMode={tradMode} toggleTrad={toggleTradMode} element={<HomePage/>} />
             <Route path="/Login" element={<Login tokenManager={tokenManager} token={token}/>} />
             <Route path="/Blog" element={<Blog tokenManager={tokenManager} token={token}/>} />
           </Routes>

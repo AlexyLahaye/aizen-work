@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import tw from "twin.macro";
 import styled from "styled-components";
 
@@ -41,14 +41,29 @@ export default ({
   description = "Pièces faites mains avec passion. De leurs impressions à leurs peintures tout est géré par nos soins.",
   primaryActionUrl = "#Boutique",
   primaryActionText = "Boutique",
+  tradMode
 }) => {
+  const [dataTrad, setdataTrad] = useState({});
+
+  useEffect(() => {
+    if (tradMode === 'fr') {
+      setdataTrad({
+        description : "Pièces faites mains avec passion. De leurs impressions à leurs peintures tout est géré par nos soins."
+      })
+    } else {
+      setdataTrad({
+        description : "Pièces faites mains avec passion. De leurs impressions à leurs peintures tout est géré par nos soins. EN"
+      })
+    }
+  }, [tradMode]);
+
   return (
     <Container>
       <TwoColumn>
         <LeftColumn>
           <Content>
             <Heading>{heading}</Heading>
-            <Paragraph>{description}</Paragraph>
+            <Paragraph>{dataTrad.description}</Paragraph>
             <Actions>
               <a href={primaryActionUrl} className="action secondaryAction">
                 {primaryActionText}

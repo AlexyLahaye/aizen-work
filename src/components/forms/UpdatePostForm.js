@@ -46,11 +46,13 @@ export default ({
   const [postTitle, setPostTitle] = useState([]);
   const [postBody, setPostBody] = useState([]);
 
-  useEffect(() => {
+  
+  useEffect(() => { 
       GetOnePost(activeIdPost).then(data => {
         setPostTitle(data.title)
         setPostBody(data.body)
       });
+      // eslint-disable-next-line
     }, []);
 
 

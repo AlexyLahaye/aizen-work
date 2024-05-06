@@ -10,9 +10,12 @@ import FAQ from "components/faqs/SimpleWithSideImage.js";
 import SubscribeNewsLetterForm from "components/forms/SimpleSubscribeNewsletter.js";
 import Footer from "components/footers/MiniCenteredFooter.js";
 
-export default () => (
+export default (
+  tradMode, 
+  toggleTradMode
+) => (
   <AnimationRevealPage>
-    <Hero />
+    <Hero tradMode={tradMode} toggleTrad={toggleTradMode}/>
     <Features />
     <SliderCard />
     <TrendingCard />
